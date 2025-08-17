@@ -93,7 +93,7 @@ jobs:
     - name: Update feeds
       working-directory: ./openwrt
       run: |       
-        git clone https://github.com/gdy666/luci-app-lucky.git package/lucky
+        # git clone https://github.com/gdy666/luci-app-lucky.git package/lucky
         ./scripts/feeds update -a
 
     - name: Defconfig ${{matrix.target}}
