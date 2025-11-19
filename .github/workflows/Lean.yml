@@ -147,7 +147,11 @@ jobs:
       working-directory: ./openwrt
       run: |
         echo -e "$(($(nproc)+1)) thread compile"
-        make -j$(($(nproc)+1)) || make -j1 V=s
+        make -j$(($(nproc)+1)) || make -j16 V=s
+
+    - name: Remove unwanted rootfs image
+      run: |
+        rm -f openwrt/bin/targets/*/*/*rootfs.img.gz
 
     - name: Organize files
       id: organize
