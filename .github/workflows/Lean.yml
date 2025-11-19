@@ -41,18 +41,8 @@ jobs:
       uses: easimon/maximize-build-space@master
       with:
         root-reserve-mb: 512
-        swap-size-mb: 1
+        swap-size-mb: 4096
         remove-dotnet: 'true'    
-
-    - name: Add Extra Swap
-      run: |
-        echo "Creating extra 4GB swap..."
-        sudo fallocate -l 4G /extraswap
-        sudo chmod 600 /extraswap
-        sudo mkswap /extraswap
-        sudo swapon /extraswap
-        echo "Swap Added. Current:"
-        free -h
 
     - name: Initialization environment
       env:
